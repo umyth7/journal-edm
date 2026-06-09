@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EDM Journal — Media Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --red: #E8001E;
+    --red-dark: #A80016;
+    --black: #0A0A0A;
+    --surface: #111111;
+    --surface2: #1A1A1A;
+    --border: rgba(255,255,255,0.08);
+    --text: #F5F5F5;
+    --muted: rgba(255,255,255,0.45);
+    --display: 'Bebas Neue', sans-serif;
+    --body: 'Inter', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--text);
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+    height: 64px;
+    background: rgba(10,10,10,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: var(--display);
+    font-size: 22px;
+    letter-spacing: 0.12em;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--red); }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 48px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 80%, rgba(232,0,30,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 20px;
+  }
+  .hero-title {
+    font-family: var(--display);
+    font-size: clamp(72px, 12vw, 160px);
+    line-height: 0.9;
+    letter-spacing: 0.04em;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+  .hero-title span {
+    color: var(--red);
+    display: block;
+  }
+  .hero-sub {
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 56px;
+  }
+  .hero-stats {
+    display: flex;
+    gap: 64px;
+    align-items: center;
+    justify-content: center;
+  }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: var(--display);
+    font-size: 48px;
+    letter-spacing: 0.04em;
+    color: var(--text);
+    line-height: 1;
+  }
+  .stat-num em { color: var(--red); font-style: normal; }
+  .stat-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+  .stat-divider {
+    width: 1px;
+    height: 48px;
+    background: var(--border);
+  }
+  .scroll-hint {
+    position: absolute;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--red), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+
+  /* SECTIONS */
+  section { padding: 100px 48px; max-width: 1200px; margin: 0 auto; }
+  .section-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: var(--display);
+    font-size: clamp(36px, 5vw, 64px);
+    letter-spacing: 0.04em;
+    line-height: 1;
+    margin-bottom: 32px;
+  }
+  .section-line {
+    width: 48px;
+    height: 2px;
+    background: var(--red);
+    margin-bottom: 40px;
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .about-body {
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.9;
+  }
+  .about-body p + p { margin-top: 20px; }
+  .about-body strong { color: var(--text); font-weight: 500; }
+  .milestones { display: flex; flex-direction: column; gap: 24px; }
+  .milestone {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .milestone-year {
+    font-family: var(--display);
+    font-size: 18px;
+    color: var(--red);
+    letter-spacing: 0.06em;
+    min-width: 52px;
+    padding-top: 2px;
+  }
+  .milestone-text {
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.65);
+    border-left: 1px solid var(--border);
+    padding-left: 20px;
+    line-height: 1.6;
+  }
+
+  /* PLATFORMS */
+  .platforms-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 8px;
+  }
+  .platform-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 28px 24px;
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color 0.25s, background 0.25s;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .platform-card:hover {
+    border-color: var(--red);
+    background: var(--surface2);
+  }
+  .platform-icon {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .platform-icon svg { width: 28px; height: 28px; }
+  .platform-name {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .platform-num {
+    font-family: var(--display);
+    font-size: 36px;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    color: var(--text);
+  }
+  .platform-num em { color: var(--red); font-style: normal; font-size: 20px; }
+  .platform-label { font-size: 12px; color: var(--muted); font-weight: 400; }
+  .platform-handle {
+    font-size: 12px;
+    color: var(--red);
+    margin-top: auto;
+    font-weight: 500;
+  }
+
+  /* FOLLOWERS CAROUSEL */
+  #followers { padding: 80px 0; max-width: 100%; }
+  .followers-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+  .carousel-wrapper {
+    overflow: hidden;
+    margin-top: 48px;
+    position: relative;
+  }
+  .carousel-wrapper::before,
+  .carousel-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 120px;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .carousel-wrapper::before {
+    left: 0;
+    background: linear-gradient(to right, var(--black), transparent);
+  }
+  .carousel-wrapper::after {
+    right: 0;
+    background: linear-gradient(to left, var(--black), transparent);
+  }
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    animation: scrollCarousel 32s linear infinite;
+    width: max-content;
+  }
+  .carousel-track:hover { animation-play-state: paused; }
+  @keyframes scrollCarousel {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .carousel-card {
+    flex-shrink: 0;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--text);
+  }
+  .carousel-avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--border);
+    transition: border-color 0.25s;
+    background: var(--surface2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--display);
+    font-size: 28px;
+    color: var(--red);
+    position: relative;
+  }
+  .carousel-card:hover .carousel-avatar { border-color: var(--red); }
+  .carousel-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0; left: 0;
+  }
+  .carousel-handle {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--muted);
+    text-align: center;
+    transition: color 0.2s;
+  }
+  .carousel-card:hover .carousel-handle { color: var(--text); }
+  .carousel-followers {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--red);
+    letter-spacing: 0.05em;
+  }
+
+  /* REACH SECTION */
+  .reach-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 48px;
+  }
+  .reach-card {
+    background: var(--surface);
+    padding: 40px 32px;
+    transition: background 0.25s;
+  }
+  .reach-card:hover { background: var(--surface2); }
+  .reach-card-num {
+    font-family: var(--display);
+    font-size: 56px;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+  .reach-card-num em { color: var(--red); font-style: normal; }
+  .reach-card-title {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .reach-card-desc {
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+  }
+
+  /* CTA FOOTER */
+  .cta-section {
+    max-width: 100%;
+    padding: 100px 48px;
+    text-align: center;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 50% 80% at 50% 100%, rgba(232,0,30,0.1) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .cta-title {
+    font-family: var(--display);
+    font-size: clamp(40px, 6vw, 80px);
+    letter-spacing: 0.04em;
+    line-height: 1;
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .cta-title span { color: var(--red); }
+  .cta-body {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--muted);
+    max-width: 480px;
+    margin: 0 auto 48px;
+    line-height: 1.8;
+    position: relative;
+  }
+  .cta-buttons { display: flex; gap: 16px; justify-content: center; position: relative; }
+  .btn-primary {
+    background: var(--red);
+    color: #fff;
+    border: none;
+    padding: 14px 36px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background 0.2s;
+    cursor: pointer;
+  }
+  .btn-primary:hover { background: var(--red-dark); }
+  .btn-outline {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 14px 36px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: border-color 0.2s, color 0.2s;
+    cursor: pointer;
+  }
+  .btn-outline:hover { border-color: rgba(255,255,255,0.4); color: var(--text); }
+
+  /* FOOTER NAV */
+  footer {
+    background: var(--black);
+    border-top: 1px solid var(--border);
+    padding: 40px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer-logo {
+    font-family: var(--display);
+    font-size: 18px;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+  }
+  .footer-logo span { color: var(--red); }
+  .footer-copy {
+    font-size: 12px;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 0.05em;
+  }
+  .footer-socials { display: flex; gap: 20px; }
+  .footer-socials a {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    transition: color 0.2s;
+  }
+  .footer-socials a:hover { color: var(--red); }
+
+  /* DIVIDER */
+  .full-divider {
+    width: 100%;
+    height: 1px;
+    background: var(--border);
+  }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    section { padding: 72px 24px; }
+    .about-grid { grid-template-columns: 1fr; gap: 48px; }
+    .platforms-grid { grid-template-columns: repeat(2, 1fr); }
+    .reach-cards { grid-template-columns: 1fr; }
+    .hero { padding: 100px 24px 80px; }
+    .hero-stats { gap: 32px; flex-wrap: wrap; }
+    footer { flex-direction: column; gap: 20px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">EDM<span>.</span>JOURNAL</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#platforms">Platforms</a></li>
+    <li><a href="#followers">Audience</a></li>
+    <li><a href="#reach">Reach</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">Electronic Music Media</div>
+  <h1 class="hero-title">
+    EDM
+    <span>Journal</span>
+  </h1>
+  <p class="hero-sub">The Underground Voice Since 2012</p>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">5<em>M+</em></div>
+      <div class="stat-label">Monthly Views</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-num">56<em>K+</em></div>
+      <div class="stat-label">Total Followers</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-num">3</div>
+      <div class="stat-label">Active Channels</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-num">12<em>+</em></div>
+      <div class="stat-label">Years Active</div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    scroll
+  </div>
+</div>
+
+<div class="full-divider"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-eyebrow">Our Story</div>
+  <h2 class="section-title">About Us</h2>
+  <div class="section-line"></div>
+  <div class="about-grid">
+    <div class="about-body">
+      <p>
+        <strong>EDM Journal</strong> began its journey in 2012 as a passion project rooted in the underground electronic music scene. What started as a small community of dedicated music lovers has grown into one of the most recognisable independent electronic music media brands in the region.
+      </p>
+      <p>
+        Over the years, we have dedicated ourselves to showcasing the artists, events, and sounds that define the cutting edge of melodic house and techno — from intimate underground venues to the world's largest stages.
+      </p>
+      <p>
+        Today, EDM Journal reaches over <strong>5 million</strong> people every month across all platforms, with a loyal and highly engaged audience that lives and breathes electronic music culture. Our content spans artist features, live sets, event coverage, and curated mixes that continue to resonate with fans worldwide.
+      </p>
+      <p>
+        We are independent, passionate, and uncompromising — built by music lovers, for music lovers.
+      </p>
+    </div>
+    <div class="milestones">
+      <div class="milestone">
+        <div class="milestone-year">2012</div>
+        <div class="milestone-text">Founded as an independent electronic music media page, dedicated to underground sounds and emerging artists.</div>
+      </div>
+      <div class="milestone">
+        <div class="milestone-year">2015</div>
+        <div class="milestone-text">Expanded across multiple platforms, building an engaged cross-channel community of electronic music fans.</div>
+      </div>
+      <div class="milestone">
+        <div class="milestone-year">2019</div>
+        <div class="milestone-text">Reached significant milestones in monthly reach, cementing our position as a trusted voice in melodic house and techno.</div>
+      </div>
+      <div class="milestone">
+        <div class="milestone-year">2024</div>
+        <div class="milestone-text">Surpassed 5M+ monthly views and 56K+ combined followers across Instagram, Facebook, TikTok, and YouTube.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="full-divider"></div>
+
+<!-- PLATFORMS -->
+<section id="platforms">
+  <div class="section-eyebrow">Where We Live</div>
+  <h2 class="section-title">Our Platforms</h2>
+  <div class="section-line"></div>
+  <div class="platforms-grid">
+
+    <!-- Instagram -->
+    <a href="https://www.instagram.com/edm.journal" target="_blank" rel="noopener" class="platform-card">
+      <div class="platform-icon">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="2" width="20" height="20" rx="5" stroke="#E8001E" stroke-width="1.5"/>
+          <circle cx="12" cy="12" r="4.5" stroke="#E8001E" stroke-width="1.5"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="#E8001E"/>
+        </svg>
+      </div>
+      <div class="platform-name">Instagram</div>
+      <div class="platform-num">10<em>K+</em></div>
+      <div class="platform-label">Followers (Main)</div>
+      <div class="platform-handle">@edm.journal</div>
+    </a>
+
+    <!-- Facebook -->
+    <a href="https://www.facebook.com/edmjournall" target="_blank" rel="noopener" class="platform-card">
+      <div class="platform-icon">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 2H15C13.6739 2 12.4022 2.52678 11.4645 3.46447C10.5268 4.40215 10 5.67392 10 7V10H7V14H10V22H14V14H17L18 10H14V7C14 6.73478 14.1054 6.48043 14.2929 6.29289C14.4804 6.10536 14.7348 6 15 6H18V2Z" stroke="#E8001E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="platform-name">Facebook</div>
+      <div class="platform-num">31<em>K+</em></div>
+      <div class="platform-label">Followers</div>
+      <div class="platform-handle">facebook.com/edmjournall</div>
+    </a>
+
+    <!-- TikTok -->
+    <a href="https://www.tiktok.com/@edm.journal" target="_blank" rel="noopener" class="platform-card">
+      <div class="platform-icon">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" stroke="#E8001E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="platform-name">TikTok</div>
+      <div class="platform-num">10<em>K+</em></div>
+      <div class="platform-label">Followers</div>
+      <div class="platform-handle">@edm.journal</div>
+    </a>
+
+    <!-- YouTube -->
+    <a href="https://www.youtube.com/@edm.journal" target="_blank" rel="noopener" class="platform-card">
+      <div class="platform-icon">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22.54 6.42C22.4212 5.94541 22.1793 5.51057 21.8387 5.15941C21.498 4.80824 21.0708 4.55318 20.6 4.42C18.88 4 12 4 12 4C12 4 5.12 4 3.4 4.46C2.92925 4.59318 2.50198 4.84824 2.16135 5.19941C1.82072 5.55057 1.57879 5.98541 1.46 6.46C1.14521 8.20556 0.991235 9.97631 1 11.75C0.988787 13.537 1.14277 15.3213 1.46 17.08C1.59096 17.5398 1.83831 17.9581 2.17814 18.2945C2.51798 18.6308 2.93882 18.8738 3.4 19C5.12 19.46 12 19.46 12 19.46C12 19.46 18.88 19.46 20.6 19C21.0708 18.8668 21.498 18.6118 21.8387 18.2606C22.1793 17.9094 22.4212 17.4746 22.54 17C22.8524 15.2676 23.0063 13.5103 23 11.75C23.0112 9.96295 22.8573 8.1787 22.54 6.42Z" stroke="#E8001E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <polygon points="9.75,15.02 15.5,11.75 9.75,8.48" stroke="#E8001E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="platform-name">YouTube</div>
+      <div class="platform-num">1<em>K+</em></div>
+      <div class="platform-label">Subscribers</div>
+      <div class="platform-handle">@edm.journal</div>
+    </a>
+
+  </div>
+
+  <p style="margin-top:24px; font-size:13px; color:var(--muted); font-weight:300;">
+    * Additional Instagram pages contribute <strong style="color:var(--text)">15K+</strong> followers combined, bringing total cross-platform community to <strong style="color:var(--text)">56K+</strong>.
+  </p>
+</section>
+
+<div class="full-divider"></div>
+
+<!-- FOLLOWERS CAROUSEL -->
+<div id="followers">
+  <div class="followers-inner">
+    <div class="section-eyebrow">Our Audience</div>
+    <h2 class="section-title">Who Follows Us</h2>
+    <div class="section-line"></div>
+    <p style="font-size:15px; font-weight:300; color:rgba(255,255,255,0.55); max-width:600px; line-height:1.8;">
+      Our community includes fans of the world's leading electronic music artists — from established icons to underground heroes of melodic house and techno.
+    </p>
+  </div>
+
+  <div class="carousel-wrapper" style="margin-top:48px;">
+    <div class="carousel-track" id="carouselTrack">
+      <!-- Cards inserted by JS -->
+    </div>
+  </div>
+</div>
+
+<div class="full-divider"></div>
+
+<!-- REACH -->
+<section id="reach">
+  <div class="section-eyebrow">By the Numbers</div>
+  <h2 class="section-title">Our Reach</h2>
+  <div class="section-line"></div>
+  <div class="reach-cards">
+    <div class="reach-card">
+      <div class="reach-card-title">Monthly Views</div>
+      <div class="reach-card-num">5<em>M+</em></div>
+      <div class="reach-card-desc">Total monthly impressions across all active social platforms and content formats.</div>
+    </div>
+    <div class="reach-card">
+      <div class="reach-card-title">Community Size</div>
+      <div class="reach-card-num">135<em>K+</em></div>
+      <div class="reach-card-desc">Combined followers across Instagram (main + secondary pages), Facebook, TikTok, and YouTube.</div>
+    </div>
+    <div class="reach-card">
+      <div class="reach-card-title">Years of Content</div>
+      <div class="reach-card-num">12<em>+</em></div>
+      <div class="reach-card-desc">Over a decade of consistent content creation, artist features, and event coverage in electronic music.</div>
+    </div>
+  </div>
+</section>
+
+<div class="full-divider"></div>
+
+<!-- CTA -->
+<div class="cta-section" id="contact">
+  <div class="cta-title">
+    Let's Work<br><span>Together</span>
+  </div>
+  <p class="cta-body">
+    We partner with festivals, labels, artists, and brands who share our passion for electronic music culture. Reach out to explore collaboration opportunities.
+  </p>
+  <div class="cta-buttons">
+    <a href="https://www.instagram.com/edm.journal" target="_blank" rel="noopener" class="btn-primary">Get in Touch</a>
+    <a href="https://www.facebook.com/edmjournall" target="_blank" rel="noopener" class="btn-outline">Facebook</a>
+    <a href="https://www.youtube.com/@edm.journal" target="_blank" rel="noopener" class="btn-outline">YouTube</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">EDM<span>.</span>JOURNAL</div>
+  <div class="footer-copy">&copy; 2024 EDM Journal. All rights reserved.</div>
+  <div class="footer-socials">
+    <a href="https://www.instagram.com/edm.journal" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.facebook.com/edmjournall" target="_blank" rel="noopener">Facebook</a>
+    <a href="https://www.tiktok.com/@edm.journal" target="_blank" rel="noopener">TikTok</a>
+    <a href="https://www.youtube.com/@edm.journal" target="_blank" rel="noopener">YouTube</a>
+  </div>
+</footer>
+
+<script>
+const artists = [
+  { handle: "@tiesto", name: "Tiësto", followers: "14.5M", color: "#1a73e8", abbr: "TI" },
+  { handle: "@adriatique", name: "Adriatique", followers: "437K", color: "#8b5cf6", abbr: "AD" },
+  { handle: "@carlcox", name: "Carl Cox", followers: "2.1M", color: "#f59e0b", abbr: "CC" },
+  { handle: "@amelielens", name: "Amelie Lens", followers: "1.2M", color: "#ec4899", abbr: "AL" },
+  { handle: "@bicepmusic", name: "Bicep", followers: "380K", color: "#10b981", abbr: "BI" },
+  { handle: "@peggygu__", name: "Peggy Gou", followers: "1.8M", color: "#f97316", abbr: "PG" },
+  { handle: "@charliebrown", name: "Charlotte de Witte", followers: "1.1M", color: "#ef4444", abbr: "CW" },
+  { handle: "@massiveattack", name: "Tale Of Us", followers: "628K", color: "#6366f1", abbr: "TU" },
+  { handle: "@solomun", name: "Solomun", followers: "1.3M", color: "#14b8a6", abbr: "SO" },
+  { handle: "@ninakraviz", name: "Nina Kraviz", followers: "1.4M", color: "#a855f7", abbr: "NK" },
+  { handle: "@theblackmadonna", name: "DJ Tennis", followers: "210K", color: "#f43f5e", abbr: "DJ" },
+  { handle: "@richieHawtin", name: "Richie Hawtin", followers: "875K", color: "#64748b", abbr: "RH" },
+];
+
+function buildCarousel() {
+  const track = document.getElementById('carouselTrack');
+  const doubled = [...artists, ...artists];
+  doubled.forEach(artist => {
+    const card = document.createElement('a');
+    card.href = `https://www.instagram.com/${artist.handle.replace('@','')}`;
+    card.target = '_blank';
+    card.rel = 'noopener';
+    card.className = 'carousel-card';
+    card.innerHTML = `
+      <div class="carousel-avatar" style="border-color: ${artist.color}22;">
+        <span style="z-index:1; position:relative;">${artist.abbr}</span>
+      </div>
+      <div class="carousel-handle">${artist.handle}</div>
+      <div class="carousel-followers">${artist.followers}</div>
+    `;
+    track.appendChild(card);
+  });
+}
+
+buildCarousel();
+</script>
+
+</body>
+</html>
