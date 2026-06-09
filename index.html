@@ -230,6 +230,98 @@
     line-height: 1.6;
   }
 
+  /* NEWS */
+  .news-featured {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+  .news-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color 0.25s, background 0.25s;
+    display: flex;
+    flex-direction: column;
+  }
+  .news-card:hover {
+    border-color: var(--red);
+    background: var(--surface2);
+  }
+  .news-card-featured { grid-column: 1; }
+  .news-thumb {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: var(--surface2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .news-thumb-featured { aspect-ratio: 16/10; }
+  .news-thumb-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(232,0,30,0.25) 0%, rgba(10,10,10,0.9) 60%);
+  }
+  .news-thumb-abbr {
+    font-family: var(--display);
+    font-size: 64px;
+    letter-spacing: 0.08em;
+    color: var(--red);
+    opacity: 0.35;
+    position: relative;
+    z-index: 1;
+  }
+  .news-thumb-featured .news-thumb-abbr { font-size: 96px; }
+  .news-body { padding: 24px; flex: 1; display: flex; flex-direction: column; gap: 10px; }
+  .news-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .news-cat { color: var(--red); }
+  .news-date { color: var(--muted); }
+  .news-title {
+    font-family: var(--display);
+    font-size: 22px;
+    letter-spacing: 0.03em;
+    line-height: 1.15;
+    color: var(--text);
+  }
+  .news-card-featured .news-title { font-size: 32px; }
+  .news-excerpt {
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.7;
+    flex: 1;
+  }
+  .news-read {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-top: 4px;
+  }
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .news-grid .news-title { font-size: 18px; }
+  .news-grid .news-thumb-abbr { font-size: 48px; }
+
   /* PLATFORMS */
   .platforms-grid {
     display: grid;
@@ -522,6 +614,8 @@
     section { padding: 72px 24px; }
     .about-grid { grid-template-columns: 1fr; gap: 48px; }
     .platforms-grid { grid-template-columns: repeat(2, 1fr); }
+    .news-featured { grid-template-columns: 1fr; }
+    .news-grid { grid-template-columns: 1fr; }
     .reach-cards { grid-template-columns: 1fr; }
     .hero { padding: 100px 24px 80px; }
     .hero-stats { gap: 32px; flex-wrap: wrap; }
@@ -536,6 +630,7 @@
   <a href="#" class="nav-logo">EDM<span>.</span>JOURNAL</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
+    <li><a href="#news">News</a></li>
     <li><a href="#platforms">Platforms</a></li>
     <li><a href="#followers">Audience</a></li>
     <li><a href="#reach">Reach</a></li>
@@ -558,7 +653,7 @@
     </div>
     <div class="stat-divider"></div>
     <div class="stat-item">
-      <div class="stat-num">135<em>K+</em></div>
+      <div class="stat-num">97<em>K+</em></div>
       <div class="stat-label">Total Followers</div>
     </div>
     <div class="stat-divider"></div>
@@ -615,9 +710,115 @@
       </div>
       <div class="milestone">
         <div class="milestone-year">2024</div>
-        <div class="milestone-text">Surpassed 5M+ monthly views and 56K+ combined followers across Instagram, Facebook, TikTok, and YouTube.</div>
+        <div class="milestone-text">Surpassed 5M+ monthly views and 97K+ combined followers across Instagram, Facebook, TikTok, and YouTube.</div>
       </div>
     </div>
+  </div>
+</section>
+
+<div class="full-divider"></div>
+
+<!-- NEWS -->
+<section id="news">
+  <div class="section-eyebrow">Latest Coverage</div>
+  <h2 class="section-title">News & Features</h2>
+  <div class="section-line"></div>
+  <p style="font-size:15px; font-weight:300; color:rgba(255,255,255,0.55); max-width:640px; line-height:1.8; margin-bottom:48px;">
+    From festival mainstages to underground breakthroughs — EDM Journal covers the artists, releases, and events shaping melodic house and techno worldwide.
+  </p>
+
+  <div class="news-featured">
+    <a href="https://djlifemag.com/2026/02/electronic-dance-music-awards-edmas-2026-nominees-announced/" target="_blank" rel="noopener" class="news-card news-card-featured">
+      <div class="news-thumb news-thumb-featured">
+        <div class="news-thumb-gradient"></div>
+        <span class="news-thumb-abbr">AD</span>
+      </div>
+      <div class="news-body">
+        <div class="news-meta">
+          <span class="news-cat">Featured</span>
+          <span class="news-date">March 23, 2026</span>
+        </div>
+        <h3 class="news-title">Adriatique Earn EDMA Nomination for Remix of the Year with RÜFÜS DU SOL's 'In the Moment'</h3>
+        <p class="news-excerpt">
+          The Swiss melodic techno duo secured a fan-voted nomination at the 2026 Electronic Dance Music Awards in Miami, placing their rework of RÜFÜS DU SOL's emotional anthem among the year's most celebrated remixes — alongside productions from Anyma, NOTION, and AVELLO.
+        </p>
+        <span class="news-read">Read more →</span>
+      </div>
+    </a>
+
+    <a href="https://www.edmtunes.com/2026/02/adriatique-elderbrook-unite-on-melodic-house-anthem-lost-in-the-woods/" target="_blank" rel="noopener" class="news-card">
+      <div class="news-thumb">
+        <div class="news-thumb-gradient"></div>
+        <span class="news-thumb-abbr">X</span>
+      </div>
+      <div class="news-body">
+        <div class="news-meta">
+          <span class="news-cat">Music</span>
+          <span class="news-date">February 20, 2026</span>
+        </div>
+        <h3 class="news-title">Adriatique & Elderbrook Unite on 'Lost In The Woods'</h3>
+        <p class="news-excerpt">
+          Released via X Recordings, the duo's first single of 2026 pairs warm synth layers with Elderbrook's unmistakable vocals — a restrained, emotionally driven melodic house cut that signals a defining new chapter.
+        </p>
+        <span class="news-read">Read more →</span>
+      </div>
+    </a>
+  </div>
+
+  <div class="news-grid">
+    <a href="https://colorsdj.com/evento-adriatique-presents-x-sao-paulo-2026-vale-do-anhangabau/" target="_blank" rel="noopener" class="news-card">
+      <div class="news-thumb">
+        <div class="news-thumb-gradient"></div>
+        <span class="news-thumb-abbr">SP</span>
+      </div>
+      <div class="news-body">
+        <div class="news-meta">
+          <span class="news-cat">Events</span>
+          <span class="news-date">March 28, 2026</span>
+        </div>
+        <h3 class="news-title">Adriatique presents X Returns to São Paulo at Vale do Anhangabaú</h3>
+        <p class="news-excerpt">
+          Following a sold-out 2025 edition, the immersive X experience returns to the heart of São Paulo on September 26 for 12 hours of melodic techno under the city's historic skyline.
+        </p>
+        <span class="news-read">Read more →</span>
+      </div>
+    </a>
+
+    <a href="https://en.wikipedia.org/wiki/Adriatique" target="_blank" rel="noopener" class="news-card">
+      <div class="news-thumb">
+        <div class="news-thumb-gradient"></div>
+        <span class="news-thumb-abbr">UMF</span>
+      </div>
+      <div class="news-body">
+        <div class="news-meta">
+          <span class="news-cat">Festivals</span>
+          <span class="news-date">March 2026</span>
+        </div>
+        <h3 class="news-title">Adriatique Take the Stage at Ultra Music Festival Miami 2026</h3>
+        <p class="news-excerpt">
+          The duo delivered a headline-worthy set during Miami Music Week, weaving their signature hypnotic grooves through crowd favourites including the RÜFÜS DU SOL remix that earned EDMA recognition.
+        </p>
+        <span class="news-read">Read more →</span>
+      </div>
+    </a>
+
+    <a href="https://mixmag.com.br/read/adriatique-traz-a-sao-paulo-a-label-adriatique-present-x-para-uma-experiencia-imersiva-news" target="_blank" rel="noopener" class="news-card">
+      <div class="news-thumb">
+        <div class="news-thumb-gradient"></div>
+        <span class="news-thumb-abbr">RIO</span>
+      </div>
+      <div class="news-body">
+        <div class="news-meta">
+          <span class="news-cat">Editorial</span>
+          <span class="news-date">February 28, 2025</span>
+        </div>
+        <h3 class="news-title">Inside Adriatique's X: From Rio's Museu do Amanhã to a Global Brand</h3>
+        <p class="news-excerpt">
+          After transforming Rio de Janeiro's waterfront and selling out editions in Dubai, Miami, and London, Adriatique's X label party has become one of electronic music's most ambitious immersive experiences.
+        </p>
+        <span class="news-read">Read more →</span>
+      </div>
+    </a>
   </div>
 </section>
 
@@ -640,8 +841,8 @@
         </svg>
       </div>
       <div class="platform-name">Instagram</div>
-      <div class="platform-num">10<em>K+</em></div>
-      <div class="platform-label">Followers (Main)</div>
+      <div class="platform-num">55<em>K+</em></div>
+      <div class="platform-label">Followers</div>
       <div class="platform-handle">@edm.journal</div>
     </a>
 
@@ -688,7 +889,7 @@
   </div>
 
   <p style="margin-top:24px; font-size:13px; color:var(--muted); font-weight:300;">
-    * Additional Instagram pages contribute <strong style="color:var(--text)">15K+</strong> followers combined, bringing total cross-platform community to <strong style="color:var(--text)">56K+</strong>.
+    * Combined across all platforms — Instagram, Facebook, TikTok, and YouTube — our total community exceeds <strong style="color:var(--text)">97K+</strong> followers.
   </p>
 </section>
 
@@ -727,8 +928,8 @@
     </div>
     <div class="reach-card">
       <div class="reach-card-title">Community Size</div>
-      <div class="reach-card-num">135<em>K+</em></div>
-      <div class="reach-card-desc">Combined followers across Instagram (main + secondary pages), Facebook, TikTok, and YouTube.</div>
+      <div class="reach-card-num">97<em>K+</em></div>
+      <div class="reach-card-desc">Combined followers across Instagram, Facebook, TikTok, and YouTube.</div>
     </div>
     <div class="reach-card">
       <div class="reach-card-title">Years of Content</div>
