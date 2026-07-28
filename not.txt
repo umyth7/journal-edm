@@ -1,0 +1,6 @@
+postgresql bağlantısı eksik
+appsettings.json'a placeholder'larla hazır bölümler eklendi — sadece gerçek değerleri doldurman yeterli:
+- Gmail.ClientId, Gmail.ClientSecret
+- GoogleDrive.ServiceAccountKey
+- Aws.AccessKey, Aws.SecretKey, Aws.BucketName
+- Anthropic.ApiKey

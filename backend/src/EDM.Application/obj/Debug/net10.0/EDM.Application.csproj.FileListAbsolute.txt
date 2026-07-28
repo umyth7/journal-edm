@@ -1,0 +1,16 @@
+C:\Users\Kullanıcı\Source\journal-edm\backend\src\EDM.Application\bin\Debug\net10.0\EDM.Application.deps.json
+C:\Users\Kullanıcı\Source\journal-edm\backend\src\EDM.Application\bin\Debug\net10.0\EDM.Application.dll
+C:\Users\Kullanıcı\Source\journal-edm\backend\src\EDM.Application\bin\Debug\net10.0\EDM.Application.pdb
+C:\Users\Kullanıcı\Source\journal-edm\backend\src\EDM.Application\bin\Debug\net10.0\EDM.Domain.dll
+C:\Users\Kullanıcı\Source\journal-edm\backend\src\EDM.Application\bin\Debug\net10.0\EDM.Domain.pdb
+C:\Users\Kullanıcı\Source\journal-edm\backend\src\EDM.Application\obj\Debug\net10.0\EDM.Application.csproj.AssemblyReference.cache
+C:\Users\Kullanıcı\Source\journal-edm\backend\src\EDM.Application\obj\Debug\net10.0\EDM.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Kullanıcı\Source\journal-edm\backend\src\EDM.Application\obj\Debug\net10.0\EDM.Application.AssemblyInfoInputs.cache
+C:\Users\Kullanıcı\Source\journal-edm\backend\src\EDM.Application\obj\Debug\net10.0\EDM.Application.AssemblyInfo.cs
+C:\Users\Kullanıcı\Source\journal-edm\backend\src\EDM.Application\obj\Debug\net10.0\EDM.Application.csproj.CoreCompileInputs.cache
+C:\Users\Kullanıcı\Source\journal-edm\backend\src\EDM.Application\obj\Debug\net10.0\EDM.Application.sourcelink.json
+C:\Users\Kullanıcı\Source\journal-edm\backend\src\EDM.Application\obj\Debug\net10.0\EDM.Appl.2BA0CA47.Up2Date
+C:\Users\Kullanıcı\Source\journal-edm\backend\src\EDM.Application\obj\Debug\net10.0\EDM.Application.dll
+C:\Users\Kullanıcı\Source\journal-edm\backend\src\EDM.Application\obj\Debug\net10.0\refint\EDM.Application.dll
+C:\Users\Kullanıcı\Source\journal-edm\backend\src\EDM.Application\obj\Debug\net10.0\EDM.Application.pdb
+C:\Users\Kullanıcı\Source\journal-edm\backend\src\EDM.Application\obj\Debug\net10.0\ref\EDM.Application.dll

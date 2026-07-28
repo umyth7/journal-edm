@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/EDM.ApiHost/EDM.ApiHost.csproj" />
+    <Project Path="src/EDM.Application/EDM.Application.csproj" />
+    <Project Path="src/EDM.Domain/EDM.Domain.csproj" />
+    <Project Path="src/EDM.Infrastructure/EDM.Infrastructure.csproj" />
+    <Project Path="src/EDM.Persistence/EDM.Persistence.csproj" />
+  </Folder>
+</Solution>
