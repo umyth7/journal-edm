@@ -190,15 +190,30 @@
   }
   .nav-links a:hover { color: var(--text); }
 
+  /* NAV ISSUE STRIP (masthead credit line) */
+  .nav-issue {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .nav-issue .sep { color: var(--red); margin: 0 8px; }
+  .nav-issue span { white-space: nowrap; }
+
   /* HERO */
   .hero {
     min-height: 100vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 120px 48px 80px;
+    align-items: flex-start;
+    justify-content: flex-end;
+    text-align: left;
+    padding: 96px 48px 40px;
     position: relative;
     overflow: hidden;
   }
@@ -210,25 +225,65 @@
       radial-gradient(ellipse 60% 50% at 50% 80%, rgba(255,24,56,0.12) 0%, transparent 70%);
     pointer-events: none;
   }
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+    justify-content: flex-end;
+  }
+  /* two-ended meta band above title */
+  .hero-metabar {
+    width: 100%;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
   .hero-eyebrow {
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.25em;
     text-transform: uppercase;
     color: var(--red);
-    margin-bottom: 20px;
+    margin: 0;
   }
+  .hero-issue {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .hero-issue .sep { color: var(--red); margin: 0 6px; }
   .hero-title {
     font-family: var(--display);
-    font-size: clamp(72px, 12vw, 160px);
-    line-height: 0.9;
-    letter-spacing: 0.04em;
+    font-size: clamp(88px, 15vw, 220px);
+    line-height: 0.86;
+    letter-spacing: 0.02em;
     color: var(--text);
-    margin-bottom: 8px;
+    text-align: left;
+    margin-bottom: 24px;
   }
   .hero-title span {
     color: var(--red);
     display: block;
+  }
+  /* dek + right-aligned mono meta */
+  .hero-dekrow {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 40px;
   }
   .hero-sub {
     font-size: 14px;
@@ -236,15 +291,28 @@
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--muted);
-    margin-bottom: 56px;
+    margin: 0;
   }
+  .hero-mono {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .hero-mono .sep { color: var(--red); margin: 0 6px; }
+  /* full-width masthead stats strip */
   .hero-stats {
     display: flex;
-    gap: 64px;
-    align-items: center;
-    justify-content: center;
+    gap: 0;
+    align-items: stretch;
+    justify-content: space-between;
+    width: 100%;
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
   }
-  .stat-item { text-align: center; }
+  .stat-item { text-align: left; flex: 1; }
   .stat-num {
     font-family: var(--display);
     font-size: 48px;
@@ -263,22 +331,23 @@
   }
   .stat-divider {
     width: 1px;
-    height: 48px;
+    align-self: stretch;
     background: var(--border);
+    margin: 0 24px;
   }
   .scroll-hint {
     position: absolute;
-    bottom: 36px;
-    left: 50%;
-    transform: translateX(-50%);
+    bottom: 24px;
+    right: 48px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-end;
     gap: 8px;
     color: var(--muted);
     font-size: 10px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
+    z-index: 1;
   }
   .scroll-line {
     width: 1px;
@@ -301,6 +370,20 @@
     color: var(--red);
     margin-bottom: 16px;
   }
+  /* numbered cover line: 01 / OUR STORY */
+  .section-coverline {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .section-coverline .num { color: var(--red); }
+  .section-coverline .sep { color: var(--red); }
+  .section-coverline .label { color: var(--muted); }
   .section-title {
     font-family: var(--display);
     font-size: clamp(36px, 5vw, 64px);
@@ -356,9 +439,9 @@
   /* NEWS */
   .news-featured {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
+    grid-template-columns: 1.7fr 1fr;
     gap: 24px;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
   }
   .news-card {
     background: var(--surface);
@@ -414,6 +497,7 @@
   }
   .news-cat { color: var(--red); }
   .news-date { color: var(--muted); }
+  .news-meta .sep { color: var(--red); }
   .news-title {
     font-family: var(--display);
     font-size: 22px;
@@ -421,7 +505,9 @@
     line-height: 1.15;
     color: var(--text);
   }
-  .news-card-featured .news-title { font-size: 32px; }
+  .news-card-featured .news-title { font-size: clamp(30px, 4vw, 52px); line-height: 1.05; letter-spacing: 0.02em; }
+  .news-card-featured .news-body { padding: 32px; gap: 14px; }
+  .news-card-featured .news-meta { font-size: 11px; letter-spacing: 0.22em; }
   .news-excerpt {
     font-size: 14px;
     font-weight: 300;
@@ -899,10 +985,13 @@
   }
   .footer-logo span { color: var(--red); }
   .footer-copy {
-    font-size: 12px;
-    color: rgba(255,255,255,0.25);
-    letter-spacing: 0.05em;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
   }
+  .footer-copy .sep { color: var(--red); margin: 0 8px; }
   .footer-socials { display: flex; gap: 20px; }
   .footer-socials a {
     font-size: 12px;
@@ -924,14 +1013,22 @@
   @media (max-width: 900px) {
     nav { padding: 0 24px; }
     .nav-links { display: none; }
+    .nav-issue { display: none; }
     section { padding: 72px 24px; }
+    .hero { padding: 88px 24px 32px; }
+    .hero-title { font-size: clamp(64px, 18vw, 120px); }
+    .hero-metabar { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .hero-dekrow { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .hero-stats { flex-wrap: wrap; gap: 24px 0; }
+    .hero-stats .stat-divider { display: none; }
+    .hero-stats .stat-item { flex: 0 0 50%; }
+    .scroll-hint { right: 24px; }
+    .news-featured { grid-template-columns: 1fr; }
     .about-grid { grid-template-columns: 1fr; gap: 48px; }
     .platforms-grid { grid-template-columns: repeat(2, 1fr); }
     .news-featured { grid-template-columns: 1fr; }
     .news-grid { grid-template-columns: 1fr; }
     .reach-cards { grid-template-columns: 1fr; }
-    .hero { padding: 100px 24px 80px; }
-    .hero-stats { gap: 32px; flex-wrap: wrap; }
     footer { flex-direction: column; gap: 20px; text-align: center; }
     .contact-section { padding: 72px 24px; }
     .contact-grid { grid-template-columns: 1fr; gap: 48px; }
@@ -949,6 +1046,10 @@
 <header>
 <nav aria-label="Main navigation">
   <a href="#" class="nav-logo" aria-label="EDM Journal - Home">EDM<span>.</span>JOURNAL</a>
+  <div class="nav-issue" aria-hidden="true">
+    <span>Edition <span class="sep">/</span> 014</span>
+    <span>Field Notes <span class="sep">/</span> Media Kit</span>
+  </div>
   <ul class="nav-links" role="list">
     <li><a href="#about">About</a></li>
     <li><a href="#news">News</a></li>
@@ -963,36 +1064,44 @@
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-eyebrow">Electronic Music Media</div>
-  <h1 class="hero-title">
-    EDM
-    <span>Journal</span>
-  </h1>
-  <p class="hero-sub">The Underground Voice Since 2012</p>
-  <div class="hero-stats">
-    <div class="stat-item">
-      <div class="stat-num">5<em>M+</em></div>
-      <div class="stat-label">Monthly Views</div>
+  <div class="hero-inner">
+    <div class="hero-metabar">
+      <div class="hero-eyebrow">Electronic Music Media</div>
+      <div class="hero-issue">Issue 014 <span class="sep">/</span> Sep 2026</div>
     </div>
-    <div class="stat-divider"></div>
-    <div class="stat-item">
-      <div class="stat-num">97<em>K+</em></div>
-      <div class="stat-label">Total Followers</div>
+    <h1 class="hero-title">
+      EDM
+      <span>Journal</span>
+    </h1>
+    <div class="hero-dekrow">
+      <p class="hero-sub">The Underground Voice Since 2012</p>
+      <div class="hero-mono" aria-hidden="true">Media Kit <span class="sep">/</span> 19 Sep 2026</div>
     </div>
-    <div class="stat-divider"></div>
-    <div class="stat-item">
-      <div class="stat-num">3</div>
-      <div class="stat-label">Active Channels</div>
-    </div>
-    <div class="stat-divider"></div>
-    <div class="stat-item">
-      <div class="stat-num">12<em>+</em></div>
-      <div class="stat-label">Years Active</div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">5<em>M+</em></div>
+        <div class="stat-label">Monthly Views</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-num">97<em>K+</em></div>
+        <div class="stat-label">Total Followers</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Active Channels</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-num">12<em>+</em></div>
+        <div class="stat-label">Years Active</div>
+      </div>
     </div>
   </div>
   <div class="scroll-hint">
     <div class="scroll-line"></div>
-    scroll
+    Scroll for the full issue
   </div>
 </div>
 
@@ -1000,7 +1109,7 @@
 
 <!-- ABOUT -->
 <section id="about">
-  <div class="section-eyebrow">Our Story</div>
+  <div class="section-coverline"><span class="num">01</span><span class="sep">/</span><span class="label">Our Story</span></div>
   <h2 class="section-title">About Us</h2>
   <div class="section-line"></div>
   <div class="about-grid">
@@ -1009,13 +1118,13 @@
         <strong>EDM Journal</strong> began its journey in 2012 as a passion project rooted in the underground electronic music scene. What started as a small community of dedicated music lovers has grown into one of the most recognisable independent electronic music media brands in the region.
       </p>
       <p>
-        Over the years, we have dedicated ourselves to showcasing the artists, events, and sounds that define the cutting edge of melodic house and techno — from intimate underground venues to the world's largest stages.
+        Over the years, we have dedicated ourselves to showcasing the artists, events, and sounds that define the cutting edge of melodic house and techno - from intimate underground venues to the world's largest stages.
       </p>
       <p>
         Today, EDM Journal reaches over <strong>5 million</strong> people every month across all platforms, with a loyal and highly engaged audience that lives and breathes electronic music culture. Our content spans artist features, live sets, event coverage, and curated mixes that continue to resonate with fans worldwide.
       </p>
       <p>
-        We are independent, passionate, and uncompromising — built by music lovers, for music lovers.
+        We are independent, passionate, and uncompromising - built by music lovers, for music lovers.
       </p>
     </div>
     <div class="milestones">
@@ -1043,11 +1152,11 @@
 
 <!-- NEWS -->
 <section id="news">
-  <div class="section-eyebrow">Latest Coverage</div>
+  <div class="section-coverline"><span class="num">02</span><span class="sep">/</span><span class="label">Latest Coverage</span></div>
   <h2 class="section-title">News & Features</h2>
   <div class="section-line"></div>
   <p style="font-size:15px; font-weight:300; color:rgba(255,255,255,0.55); max-width:640px; line-height:1.8; margin-bottom:48px;">
-    From festival mainstages to underground breakthroughs — EDM Journal covers the artists, releases, and events shaping melodic house and techno worldwide.
+    From festival mainstages to underground breakthroughs - EDM Journal covers the artists, releases, and events shaping melodic house and techno worldwide.
   </p>
 
   <div class="news-featured">
@@ -1060,11 +1169,12 @@
       <div class="news-body">
         <div class="news-meta">
           <span class="news-cat">Featured</span>
-          <time class="news-date" datetime="2026-03-23">March 23, 2026</time>
+          <span class="sep" aria-hidden="true">/</span>
+          <time class="news-date" datetime="2026-03-23">23 Mar 2026</time>
         </div>
         <h3 class="news-title">Adriatique Earn EDMA Nomination for Remix of the Year with RÜFÜS DU SOL's 'In the Moment'</h3>
         <p class="news-excerpt">
-          The Swiss melodic techno duo secured a fan-voted nomination at the 2026 Electronic Dance Music Awards in Miami, placing their rework of RÜFÜS DU SOL's emotional anthem among the year's most celebrated remixes — alongside productions from Anyma, NOTION, and AVELLO.
+          The Swiss melodic techno duo secured a fan-voted nomination at the 2026 Electronic Dance Music Awards in Miami, placing their rework of RÜFÜS DU SOL's emotional anthem among the year's most celebrated remixes - alongside productions from Anyma, NOTION, and AVELLO.
         </p>
         <span class="news-read" aria-label="Read full article">Read more →</span>
       </div>
@@ -1080,11 +1190,12 @@
       <div class="news-body">
         <div class="news-meta">
           <span class="news-cat">Music</span>
-          <time class="news-date" datetime="2026-02-20">February 20, 2026</time>
+          <span class="sep" aria-hidden="true">/</span>
+          <time class="news-date" datetime="2026-02-20">20 Feb 2026</time>
         </div>
         <h3 class="news-title">Adriatique & Elderbrook Unite on 'Lost In The Woods'</h3>
         <p class="news-excerpt">
-          Released via X Recordings, the duo's first single of 2026 pairs warm synth layers with Elderbrook's unmistakable vocals — a restrained, emotionally driven melodic house cut that signals a defining new chapter.
+          Released via X Recordings, the duo's first single of 2026 pairs warm synth layers with Elderbrook's unmistakable vocals - a restrained, emotionally driven melodic house cut that signals a defining new chapter.
         </p>
         <span class="news-read" aria-label="Read full article">Read more →</span>
       </div>
@@ -1102,7 +1213,8 @@
       <div class="news-body">
         <div class="news-meta">
           <span class="news-cat">Events</span>
-          <time class="news-date" datetime="2026-03-28">March 28, 2026</time>
+          <span class="sep" aria-hidden="true">/</span>
+          <time class="news-date" datetime="2026-03-28">28 Mar 2026</time>
         </div>
         <h3 class="news-title">Adriatique presents X Returns to São Paulo at Vale do Anhangabaú</h3>
         <p class="news-excerpt">
@@ -1122,7 +1234,8 @@
       <div class="news-body">
         <div class="news-meta">
           <span class="news-cat">Festivals</span>
-          <time class="news-date" datetime="2026-03-01">March 2026</time>
+          <span class="sep" aria-hidden="true">/</span>
+          <time class="news-date" datetime="2026-03-01">Mar 2026</time>
         </div>
         <h3 class="news-title">Adriatique Take the Stage at Ultra Music Festival Miami 2026</h3>
         <p class="news-excerpt">
@@ -1142,7 +1255,8 @@
       <div class="news-body">
         <div class="news-meta">
           <span class="news-cat">Editorial</span>
-          <time class="news-date" datetime="2025-02-28">February 28, 2025</time>
+          <span class="sep" aria-hidden="true">/</span>
+          <time class="news-date" datetime="2025-02-28">28 Feb 2025</time>
         </div>
         <h3 class="news-title">Inside Adriatique's X: From Rio's Museu do Amanhã to a Global Brand</h3>
         <p class="news-excerpt">
@@ -1159,7 +1273,7 @@
 
 <!-- PLATFORMS -->
 <section id="platforms">
-  <div class="section-eyebrow">Where We Live</div>
+  <div class="section-coverline"><span class="num">03</span><span class="sep">/</span><span class="label">Where We Live</span></div>
   <h2 class="section-title">Our Platforms</h2>
   <div class="section-line"></div>
   <div class="platforms-grid">
@@ -1214,7 +1328,7 @@
   </div>
 
   <p style="margin-top:24px; font-size:13px; color:var(--muted); font-weight:300;">
-    * Combined across all platforms — Instagram, Facebook, TikTok, and YouTube — our total community exceeds <strong style="color:var(--text)">97K+</strong> followers.
+    * Combined across all platforms - Instagram, Facebook, TikTok, and YouTube - our total community exceeds <strong style="color:var(--text)">97K+</strong> followers.
   </p>
 </section>
 
@@ -1223,11 +1337,11 @@
 <!-- FOLLOWERS CAROUSEL -->
 <div id="followers">
   <div class="followers-inner">
-    <div class="section-eyebrow">Our Audience</div>
+    <div class="section-coverline"><span class="num">04</span><span class="sep">/</span><span class="label">Our Audience</span></div>
     <h2 class="section-title">Who Follows Us</h2>
     <div class="section-line"></div>
     <p style="font-size:15px; font-weight:300; color:rgba(255,255,255,0.55); max-width:600px; line-height:1.8;">
-      Our community includes fans of the world's leading electronic music artists — from established icons to underground heroes of melodic house and techno.
+      Our community includes fans of the world's leading electronic music artists - from established icons to underground heroes of melodic house and techno.
     </p>
   </div>
 
@@ -1240,7 +1354,7 @@
 
 <!-- REACH -->
 <section id="reach">
-  <div class="section-eyebrow">By the Numbers</div>
+  <div class="section-coverline"><span class="num">05</span><span class="sep">/</span><span class="label">By the Numbers</span></div>
   <h2 class="section-title">Our Reach</h2>
   <div class="section-line"></div>
   <div class="reach-cards">
@@ -1267,7 +1381,7 @@
 <!-- CONTACT FORM -->
 <div class="contact-section" id="contact">
   <div class="contact-inner">
-    <div class="section-eyebrow">PR & Collaborations</div>
+    <div class="section-coverline"><span class="num">06</span><span class="sep">/</span><span class="label">PR & Collaborations</span></div>
     <h2 class="section-title" style="font-family:var(--display); font-size:clamp(36px,5vw,64px); letter-spacing:0.04em; line-height:1; margin-bottom:0;">Get in Touch</h2>
     <div class="section-line" style="margin-top:32px;"></div>
 
@@ -1278,7 +1392,7 @@
           Let's Build<br><span>Something</span>
         </div>
         <p class="contact-info-body">
-          We partner with festivals, labels, artists, and brands who share our passion for electronic music culture. Whether it's a press feature, event coverage, or a full campaign — we'd love to hear from you.
+          We partner with festivals, labels, artists, and brands who share our passion for electronic music culture. Whether it's a press feature, event coverage, or a full campaign - we'd love to hear from you.
         </p>
         <div class="contact-tags">
           <span class="contact-tag">Press Features</span>
@@ -1348,7 +1462,7 @@
     Follow the<br><span>Sound</span>
   </div>
   <p class="cta-body">
-    Stay connected with the latest in electronic music — follow us across all platforms.
+    Stay connected with the latest in electronic music - follow us across all platforms.
   </p>
   <div class="cta-buttons">
     <a href="https://www.instagram.com/edm.journal" target="_blank" rel="noopener" class="btn-primary">Instagram</a>
@@ -1362,7 +1476,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">EDM<span>.</span>JOURNAL</div>
-  <div class="footer-copy">&copy; 2024 EDM Journal. All rights reserved.</div>
+  <div class="footer-copy">EDM.Journal <span class="sep">/</span> Edition 014 <span class="sep">/</span> &copy; 2026</div>
   <nav class="footer-socials" aria-label="Social media links">
     <a href="https://www.instagram.com/edm.journal" target="_blank" rel="noopener">Instagram</a>
     <a href="https://www.facebook.com/edmjournall" target="_blank" rel="noopener">Facebook</a>
